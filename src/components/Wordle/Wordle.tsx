@@ -6,8 +6,8 @@ const Wordle = ({ children }: PropsWithChildren<{}>) => {
     () => ({
       keyboardState: {
         [Key.G]: KeyState.Absent,
-        [Key.L]: KeyState.Absent,
-        [Key.P]: KeyState.Correct,
+        [Key.L]: KeyState.Correct,
+        [Key.P]: KeyState.Present,
       },
     }),
     []

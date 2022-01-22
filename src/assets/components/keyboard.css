@@ -11,8 +11,13 @@
 }
 
 .keyboard__key--absent {
-  @apply bg-gray-700 text-white;
+  @apply bg-gray-500 text-white;
 }
+
 .keyboard__key--correct {
-  @apply bg-green-600 text-white;
+  @apply bg-green-500 text-white;
+}
+
+.keyboard__key--present {
+  @apply bg-yellow-500 text-white;
 }

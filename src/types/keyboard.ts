@@ -32,4 +32,5 @@ export enum Key {
 export enum KeyState {
   Absent = 'absent',
   Correct = 'correct',
+  Present = 'present',
 }

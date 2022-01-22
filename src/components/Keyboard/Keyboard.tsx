@@ -47,6 +47,7 @@ const KEYBOARD_DISTRIBUTION = [
 const CLASSNAME_BY_STATE: Record<KeyState, string> = {
   [KeyState.Absent]: 'keyboard__key--absent',
   [KeyState.Correct]: 'keyboard__key--correct',
+  [KeyState.Present]: 'keyboard__key--present',
 };
 
 const Keyboard = () => {
