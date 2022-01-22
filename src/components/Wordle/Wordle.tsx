@@ -9,6 +9,7 @@ const Wordle = ({ children }: PropsWithChildren<{}>) => {
         [Key.L]: KeyState.Correct,
         [Key.P]: KeyState.Present,
       },
+      onKeyPress: (key: Key) => console.log(key),
     }),
     []
   );
@@ -20,10 +21,12 @@ const Wordle = ({ children }: PropsWithChildren<{}>) => {
 
 type WordleContextType = {
   keyboardState: Partial<Record<Key, KeyState>>;
+  onKeyPress: (key: Key) => void;
 };
 
 const WordleContext = createContext<WordleContextType>({
   keyboardState: {},
+  onKeyPress: () => null,
 });
 
 export const useWordle = () => {

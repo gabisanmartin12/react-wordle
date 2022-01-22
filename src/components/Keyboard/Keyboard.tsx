@@ -51,13 +51,13 @@ const CLASSNAME_BY_STATE: Record<KeyState, string> = {
 };
 
 const Keyboard = () => {
-  const { keyboardState } = useWordle();
+  const { keyboardState, onKeyPress } = useWordle();
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {
     const target = event.target as HTMLDivElement;
     if (target.id) {
       let id = target.id as Key;
-      console.log(id);
+      onKeyPress(id);
     }
   };
 
