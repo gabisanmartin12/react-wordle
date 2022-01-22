@@ -28,3 +28,8 @@ export enum Key {
   Y = 'KeyY',
   Z = 'KeyZ',
 }
+
+export enum KeyState {
+  Absent = 'absent',
+  Correct = 'correct',
+}
