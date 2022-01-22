@@ -38,13 +38,13 @@ const KEYBOARD_DISTRIBUTION = [
 ];
 
 const Keyboard = () => (
-  <div className="py-2 flex flex-col space-y-2 justify-between">
+  <div className="w-full py-2 flex flex-col space-y-2 justify-between">
     {KEYBOARD_DISTRIBUTION.map((row, index) => (
-      <div key={`row-${index}`} className="flex space-x-2 justify-center">
+      <div key={`row-${index}`} className="px-2 flex space-x-2 justify-center">
         {row.map(({ code, label }) => (
           <div
             key={code}
-            className="h-14 px-4 flex justify-center items-center rounded bg-gray-300 text-xs font-semibold cursor-pointer"
+            className="h-14 px-3 flex-1 flex justify-center items-center rounded bg-gray-300 text-xs font-semibold cursor-pointer"
           >
             {label}
           </div>
