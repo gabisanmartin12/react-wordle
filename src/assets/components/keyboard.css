@@ -1,0 +1,18 @@
+.keyboard {
+  @apply w-full py-2 flex flex-col space-y-2 justify-between;
+}
+
+.keyboard__row {
+  @apply px-2 flex space-x-2 justify-center;
+}
+
+.keyboard__key {
+  @apply h-14 px-3 flex-1 flex justify-center items-center rounded bg-gray-300 text-xs font-semibold cursor-pointer;
+}
+
+.keyboard__key--absent {
+  @apply bg-gray-700 text-white;
+}
+.keyboard__key--correct {
+  @apply bg-green-600 text-white;
+}
