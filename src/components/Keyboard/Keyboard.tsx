@@ -1,6 +1,8 @@
 import { BackspaceIcon } from '@heroicons/react/outline';
+import classNames from 'classnames';
 import { MouseEvent } from 'react';
-import { Key } from '../../types/keyboard';
+import { Key, KeyState } from '../../types/keyboard';
+import { useWordle } from '../Wordle/Wordle';
 
 const KEYBOARD_DISTRIBUTION = [
   [
@@ -42,7 +44,14 @@ const KEYBOARD_DISTRIBUTION = [
   ],
 ];
 
+const CLASSNAME_BY_STATE: Record<KeyState, string> = {
+  [KeyState.Absent]: 'keyboard__key--absent',
+  [KeyState.Correct]: 'keyboard__key--correct',
+};
+
 const Keyboard = () => {
+  const { keyboardState } = useWordle();
+
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {
     const target = event.target as HTMLDivElement;
     if (target.id) {
@@ -55,11 +64,17 @@ const Keyboard = () => {
     <div className="keyboard" onClick={handleClick}>
       {KEYBOARD_DISTRIBUTION.map((row, index) => (
         <div className="keyboard__row" key={`row-${index}`}>
-          {row.map(({ code, label }) => (
-            <div className="keyboard__key" key={code} id={code}>
-              {label}
-            </div>
-          ))}
+          {row.map(({ code, label }) => {
+            const classnames = ['keyboard__key'];
+            const state = keyboardState[code];
+            if (state) classnames.push(CLASSNAME_BY_STATE[state]);
+
+            return (
+              <div className={classNames(...classnames)} key={code} id={code}>
+                {label}
+              </div>
+            );
+          })}
         </div>
       ))}
     </div>
